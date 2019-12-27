@@ -16,7 +16,6 @@ AppBar buildAppBar(
   @required List<Map<String, Object>> tabViews,
   @required FocusNode searchFocus,
   @required TextEditingController searchTextController,
-  @required Function clearSearchQuery,
 }) {
   // Chat Tabs
   var _chatTabBar = TabBar(
@@ -82,8 +81,12 @@ AppBar buildAppBar(
               Expanded(
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 4),
-                  child: searchField(searchTextController, searchFocus,
-                      isSearchInFocus, context, clearSearchQuery),
+                  child: searchField(
+                    searchTextController,
+                    searchFocus,
+                    isSearchInFocus,
+                    context,
+                  ),
                 ),
               ),
               if (!isSearchInFocus)

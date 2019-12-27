@@ -17,7 +17,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   int _selectedView = 0;
-  FocusNode _seacrhFocusNode = new FocusNode();
+  FocusNode _seacrhFocusNode = FocusNode();
   final TextEditingController _searchTextController = TextEditingController();
 
   List<Map<String, Object>> _tabViews = [
@@ -46,12 +46,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   void _onSearchFocusChange() {
     setState(() {
       _isSearchInFocus = _seacrhFocusNode.hasFocus;
-    });
-  }
-
-  void _clearSearchQuery() {
-    setState(() {
-      _searchTextController.clear();
     });
   }
 
@@ -103,7 +97,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         tabViews: _tabViews,
         searchFocus: _seacrhFocusNode,
         searchTextController: _searchTextController,
-        clearSearchQuery: _clearSearchQuery,
       ),
       body: _views[_selectedView],
       bottomNavigationBar: BottomNavBar(

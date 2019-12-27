@@ -92,17 +92,19 @@ class BottomNavBarState extends State<BottomNavBar> {
         ? Theme.of(context).bottomAppBarColor
         : Theme.of(context).primaryColor;
     return Expanded(
-      child: SizedBox(
-        height: widget.height,
-        child: Material(
-          // type: MaterialType.transparency,
-          child: InkWell(
-            onTap: () => onPressed(index),
-            child: Container(
-              color: _selectedIndex == index
-                  ? Theme.of(context).primaryColor
-                  : Theme.of(context).bottomAppBarColor,
-              child: Column(
+      child: InkWell(
+        onTap: () => onPressed(index),
+        child: SizedBox(
+          height: widget.height,
+          child: Stack(
+            alignment: Alignment(0.0, 0.0), // all centered
+            children: <Widget>[
+              Container(
+                color: _selectedIndex == index
+                    ? Theme.of(context).primaryColor
+                    : Theme.of(context).bottomAppBarColor,
+              ),
+              Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -120,7 +122,7 @@ class BottomNavBarState extends State<BottomNavBar> {
                   )
                 ],
               ),
-            ),
+            ],
           ),
         ),
       ),

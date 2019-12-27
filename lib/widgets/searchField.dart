@@ -1,23 +1,18 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:pro1/icons/pro_icons_ui.dart';
+import 'package:pro1/widgets/CircleIconButton.dart';
 
 TextField searchField(
   TextEditingController searchTextController,
   FocusNode searchFocus,
   bool isSearchInFocus,
   BuildContext context,
-  Function clearSearchQuery,
 ) {
   if (isSearchInFocus) {
-    Timer(Duration(milliseconds: 300), () {
+    // NOTE: Increase delay duration to fix any keyboard closing problem.
+    Future.delayed(Duration(milliseconds: 300)).then((_) {
       if (MediaQuery.of(context).viewInsets.bottom == 0) {
-        FocusScopeNode currentFocus = FocusScope.of(context);
-
-        if (!currentFocus.hasPrimaryFocus) {
-          currentFocus.unfocus();
-        }
+        FocusScope.of(context).unfocus();
       }
     });
   }
@@ -26,8 +21,8 @@ TextField searchField(
     focusNode: searchFocus,
     style: TextStyle(fontSize: 20),
     decoration: InputDecoration(
-      contentPadding: EdgeInsets.symmetric(
-          vertical: 2, horizontal: isSearchInFocus ? 8 : 0),
+      contentPadding: EdgeInsets.only(
+          top: 2, bottom: 2, left: isSearchInFocus ? 8 : 0, right: 0),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.all(Radius.circular(0)),
         borderSide: BorderSide(color: Theme.of(context).primaryColor, width: 2),
@@ -42,14 +37,17 @@ TextField searchField(
               color: Theme.of(context).primaryColor,
             )
           : null,
-      suffix: isSearchInFocus
-          ? InkWell(
-              onTap: clearSearchQuery,
-              child: Icon(
-                ProIconUI.close_fill,
-                size: 18,
-                color: Theme.of(context).primaryColor,
-              ),
+      suffixIcon: isSearchInFocus
+          ? CircleIconButton(
+              icon: ProIconUI.close_fill,
+              size: 25,
+              color: Theme.of(context).bottomAppBarColor,
+              onPressed: () => {
+                Future.delayed(Duration(milliseconds: 50)).then((_) {
+                  searchTextController.clear();
+                  // FocusScope.of(context).unfocus();
+                })
+              },
             )
           : null,
       hintStyle: TextStyle(color: Theme.of(context).primaryColor),
