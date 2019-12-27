@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:pro1/icons/pro_icons_ui.dart';
 
-class AddNewItem extends StatefulWidget {
+class NotificationView extends StatefulWidget {
   @override
-  AddNewItemState createState() => AddNewItemState();
+  NotificationViewState createState() => NotificationViewState();
 }
 
-class AddNewItemState extends State<AddNewItem> {
+class NotificationViewState extends State<NotificationView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,13 +30,13 @@ class AddNewItemState extends State<AddNewItem> {
         ),
         centerTitle: true,
         title: Text(
-          'Sell'.toUpperCase(),
+          'Notifications'.toUpperCase(),
           style: TextStyle(color: Theme.of(context).primaryColor),
         ),
         actions: [],
       ),
       body: Container(
-        color: Colors.amber,
+        color: Colors.lime,
         height: 320,
       ),
     );

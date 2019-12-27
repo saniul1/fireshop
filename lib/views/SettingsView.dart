@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:pro1/icons/pro_icons_ui.dart';
 
-class AddNewItem extends StatefulWidget {
+class SettingsView extends StatefulWidget {
   @override
-  AddNewItemState createState() => AddNewItemState();
+  SettingsViewState createState() => SettingsViewState();
 }
 
-class AddNewItemState extends State<AddNewItem> {
+class SettingsViewState extends State<SettingsView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,13 +30,13 @@ class AddNewItemState extends State<AddNewItem> {
         ),
         centerTitle: true,
         title: Text(
-          'Sell'.toUpperCase(),
+          'Settingss'.toUpperCase(),
           style: TextStyle(color: Theme.of(context).primaryColor),
         ),
         actions: [],
       ),
       body: Container(
-        color: Colors.amber,
+        color: Colors.black,
         height: 320,
       ),
     );

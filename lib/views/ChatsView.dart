@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
 class ChatsView extends StatelessWidget {
+  final TabController tabController;
+  ChatsView({@required this.tabController});
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Container(
-          color: Colors.green,
-          height: 320,
-        )
-      ],
+    return TabBarView(
+      controller: tabController,
+      children: List.generate(tabController.length, (i) {
+        final colors = [Colors.green, Colors.yellow, Colors.blue];
+        return Card(color: colors[i]);
+      }),
     );
   }
 }

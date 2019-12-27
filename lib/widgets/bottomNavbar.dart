@@ -71,7 +71,11 @@ class BottomNavBarState extends State<BottomNavBar> {
             SizedBox(height: widget.iconSize),
             Text(
               widget.centerItemText ?? '',
-              style: TextStyle(color: Theme.of(context).primaryColor),
+              style: TextStyle(
+                color: Theme.of(context).primaryColor,
+                fontSize: 13,
+                fontFamily: 'Roboto Condensed',
+              ),
             ),
           ],
         ),
@@ -103,9 +107,16 @@ class BottomNavBarState extends State<BottomNavBar> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Icon(item.iconData, color: color, size: widget.iconSize),
+                  Padding(
+                    padding: const EdgeInsets.all(2),
+                  ),
                   Text(
                     item.text,
-                    style: TextStyle(color: color),
+                    style: TextStyle(
+                      color: color,
+                      fontSize: 12,
+                      fontFamily: 'Roboto Condensed',
+                    ),
                   )
                 ],
               ),
