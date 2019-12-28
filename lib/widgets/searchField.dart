@@ -41,7 +41,7 @@ TextField searchField(
           ? CircleIconButton(
               icon: ProIconUI.close_fill,
               size: 25,
-              color: Theme.of(context).bottomAppBarColor,
+              color: Colors.transparent,
               onPressed: () => {
                 Future.delayed(Duration(milliseconds: 50)).then((_) {
                   searchTextController.clear();

@@ -92,37 +92,32 @@ class BottomNavBarState extends State<BottomNavBar> {
         ? Theme.of(context).bottomAppBarColor
         : Theme.of(context).primaryColor;
     return Expanded(
-      child: InkWell(
-        onTap: () => onPressed(index),
-        child: SizedBox(
-          height: widget.height,
-          child: Stack(
-            alignment: Alignment(0.0, 0.0), // all centered
-            children: <Widget>[
-              Container(
-                color: _selectedIndex == index
-                    ? Theme.of(context).primaryColor
-                    : Theme.of(context).bottomAppBarColor,
-              ),
-              Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Icon(item.iconData, color: color, size: widget.iconSize),
-                  Padding(
-                    padding: const EdgeInsets.all(2),
+      child: Material(
+        color: _selectedIndex == index
+            ? Theme.of(context).primaryColor
+            : Theme.of(context).bottomAppBarColor,
+        child: InkWell(
+          onTap: () => onPressed(index),
+          child: SizedBox(
+            height: widget.height,
+            width: 100,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Icon(item.iconData, color: color, size: widget.iconSize),
+                Padding(
+                  padding: const EdgeInsets.all(2),
+                ),
+                Text(
+                  item.text,
+                  style: TextStyle(
+                    color: color,
+                    fontSize: 12,
+                    fontFamily: 'Roboto Condensed',
                   ),
-                  Text(
-                    item.text,
-                    style: TextStyle(
-                      color: color,
-                      fontSize: 12,
-                      fontFamily: 'Roboto Condensed',
-                    ),
-                  )
-                ],
-              ),
-            ],
+                )
+              ],
+            ),
           ),
         ),
       ),
