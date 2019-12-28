@@ -8,18 +8,10 @@ TextField searchField(
   bool isSearchInFocus,
   BuildContext context,
 ) {
-  if (isSearchInFocus) {
-    // NOTE: Increase delay duration to fix any keyboard closing problem.
-    Future.delayed(Duration(milliseconds: 300)).then((_) {
-      if (MediaQuery.of(context).viewInsets.bottom == 0) {
-        FocusScope.of(context).unfocus();
-      }
-    });
-  }
   return TextField(
     controller: searchTextController,
     focusNode: searchFocus,
-    style: TextStyle(fontSize: 20),
+    style: TextStyle(fontSize: 20, color: Theme.of(context).primaryColor),
     decoration: InputDecoration(
       contentPadding: EdgeInsets.only(
           top: 2, bottom: 2, left: isSearchInFocus ? 8 : 0, right: 0),
@@ -50,8 +42,9 @@ TextField searchField(
               },
             )
           : null,
-      hintStyle: TextStyle(color: Theme.of(context).primaryColor),
-      hintText: 'Find items to buy...',
+      hintStyle:
+          TextStyle(color: Theme.of(context).primaryColor.withAlpha(200)),
+      hintText: 'Find stuff to buy...',
     ),
   );
 }

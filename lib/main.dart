@@ -10,9 +10,12 @@ class MyApp extends StatelessWidget {
       title: 'AppName',
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
-        accentColor: Colors.tealAccent,
         fontFamily: 'Roboto',
+        bottomAppBarColor: Colors.yellow,
+        backgroundColor: Colors.white,
+        scaffoldBackgroundColor: Colors.grey[50],
         appBarTheme: AppBarTheme(
+          color: Colors.yellow,
           textTheme: TextTheme(
             title: TextStyle(
               color: Colors.black54,
@@ -29,7 +32,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
         textTheme: TextTheme(
-          title: TextStyle(
+          body1: TextStyle(
             color: Colors.black54,
             fontSize: 18,
             fontFamily: 'Roboto',

@@ -72,8 +72,7 @@ AppBar buildAppBar(
   }
 
   return AppBar(
-    backgroundColor: Theme.of(context).bottomAppBarColor,
-    elevation: 0,
+    elevation: 0.5,
     titleSpacing: selectedView == 0 ? 0 : 12,
     title: selectedView == 0
         ? Row(
@@ -94,7 +93,6 @@ AppBar buildAppBar(
                   value: '0',
                   child: IconButton(
                     color: Theme.of(context).primaryColor,
-                    // icon: Icon(Icons.notifications),
                     icon: Icon(
                       ProIconUI.bell,
                       size: 20,
