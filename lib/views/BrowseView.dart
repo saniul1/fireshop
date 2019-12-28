@@ -87,32 +87,75 @@ class BrowseView extends StatelessWidget {
           height: crossAxisCount > 1
               ? double.parse('${200 * crossAxisCount}')
               : 250,
-          color: Theme.of(context).backgroundColor,
+          // color: Theme.of(context).backgroundColor,
           child: GridView.count(
             scrollDirection: Axis.horizontal,
-            padding: const EdgeInsets.all(5),
-            crossAxisSpacing: 5,
-            mainAxisSpacing: 5,
+            // padding: const EdgeInsets.all(5),
+            // crossAxisSpacing: 0,
+            // mainAxisSpacing: 0,
             crossAxisCount: crossAxisCount,
             children: List.generate(
               9,
               (i) {
-                return GridTile(
-                  child: Container(
-                    color: Colors.teal[100 * (i + 1)],
-                    child: Column(
+                return Card(
+                  elevation: 0.5,
+                  child: GridTile(
+                    child: Stack(
+                      alignment: AlignmentDirectional.topEnd, // all centered
                       children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.all(5),
+                        Image.network(
+                          'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg',
+                          fit: BoxFit.cover,
                         ),
-                        Center(
-                          child: Text(
-                            'item-$i',
-                            style: TextStyle(
-                                color: Theme.of(context).primaryColor),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: CircleIconButton(
+                            icon: Icons.favorite_border,
+                            onPressed: () {},
                           ),
                         )
                       ],
+                    ),
+                    footer: GridTileBar(
+                      backgroundColor: Theme.of(context).backgroundColor,
+                      title: Row(
+                        children: <Widget>[
+                          Expanded(
+                            child: Row(
+                              children: <Widget>[
+                                Icon(
+                                  Icons.gps_fixed,
+                                  color: Colors.black45,
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(horizontal: 2),
+                                ),
+                                Text(
+                                  'It\'s a long text',
+                                  style: TextStyle(color: Colors.black45),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Text(
+                            '\$45',
+                            style: TextStyle(
+                              color: Theme.of(context).primaryColor,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                      subtitle: Text(
+                        'adadasdasdfadaf Item-$i',
+                        style: TextStyle(
+                          color: Theme.of(context).primaryColor,
+                          fontSize: 18,
+                        ),
+                        textAlign: TextAlign.left,
+                      ),
                     ),
                   ),
                 );
