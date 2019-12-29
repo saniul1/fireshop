@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pro1/widgets/appBar.dart';
-import 'package:pro1/widgets/bottomNavbar.dart';
+import 'package:pro1/widgets/AppBar.dart';
+import 'package:pro1/widgets/BottomNavbar.dart';
 import 'package:pro1/views/AccountView.dart';
 import 'package:pro1/views/ShopView.dart';
 import 'package:pro1/views/ChatsView.dart';
@@ -51,7 +51,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    super.initState();
     _seacrhFocusNode.addListener(_onSearchFocusChange);
     _searchTextController.text = '';
     _chatTabController = TabController(vsync: this, length: _chatTabs.length);
@@ -66,6 +65,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       ),
       AccountView()
     ];
+    super.initState();
   }
 
   @override
@@ -86,10 +86,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomPadding: false,
-      appBar: buildAppBar(
-        context,
+      appBar: AppBarPro(
         _selectedView,
-        _isSearchInFocus,
+        isSearchInFocus: _isSearchInFocus,
         chatTabController: _chatTabController,
         chatTabs: _chatTabs,
         shopTabController: _shopTabController,
@@ -114,7 +113,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         onPressed: _openSellItemView,
         child: Icon(
           ProIconUI.plus,
-          color: Theme.of(context).bottomAppBarColor,
+          color: Theme.of(context).primaryColor,
         ),
         elevation: 2.0,
       ), // This trailing comma makes auto-formatting nicer for build methods.

@@ -56,7 +56,7 @@ class BottomNavBarState extends State<BottomNavBar> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: items,
       ),
-      color: Theme.of(context).bottomAppBarColor,
+      color: Theme.of(context).primaryColor,
     );
   }
 
@@ -72,7 +72,7 @@ class BottomNavBarState extends State<BottomNavBar> {
             Text(
               widget.centerItemText ?? '',
               style: TextStyle(
-                color: Theme.of(context).primaryColor,
+                color: Theme.of(context).accentColor,
                 fontSize: 13,
                 fontFamily: 'Roboto Condensed',
               ),
@@ -89,13 +89,13 @@ class BottomNavBarState extends State<BottomNavBar> {
     ValueChanged<int> onPressed,
   }) {
     Color color = _selectedIndex == index
-        ? Theme.of(context).bottomAppBarColor
-        : Theme.of(context).primaryColor;
+        ? Theme.of(context).primaryColor
+        : Theme.of(context).accentColor;
     return Expanded(
       child: Material(
         color: _selectedIndex == index
-            ? Theme.of(context).primaryColor
-            : Theme.of(context).bottomAppBarColor,
+            ? Theme.of(context).accentColor
+            : Theme.of(context).primaryColor,
         child: InkWell(
           onTap: () => onPressed(index),
           child: SizedBox(

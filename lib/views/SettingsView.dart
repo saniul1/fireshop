@@ -11,7 +11,6 @@ class SettingsViewState extends State<SettingsView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).bottomAppBarColor,
         elevation: 0,
         automaticallyImplyLeading: false,
         leading: Builder(
@@ -21,7 +20,7 @@ class SettingsViewState extends State<SettingsView> {
                 ProIconUI.close_fill,
                 size: 16,
               ),
-              color: Theme.of(context).primaryColor,
+              color: Theme.of(context).accentColor,
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -31,7 +30,7 @@ class SettingsViewState extends State<SettingsView> {
         centerTitle: true,
         title: Text(
           'Settingss'.toUpperCase(),
-          style: TextStyle(color: Theme.of(context).primaryColor),
+          style: TextStyle(color: Theme.of(context).accentColor),
         ),
         actions: [],
       ),

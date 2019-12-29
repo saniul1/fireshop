@@ -11,7 +11,6 @@ class NotificationViewState extends State<NotificationView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).bottomAppBarColor,
         elevation: 0,
         automaticallyImplyLeading: false,
         leading: Builder(
@@ -21,7 +20,7 @@ class NotificationViewState extends State<NotificationView> {
                 ProIconUI.close_fill,
                 size: 16,
               ),
-              color: Theme.of(context).primaryColor,
+              color: Theme.of(context).accentColor,
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -31,7 +30,7 @@ class NotificationViewState extends State<NotificationView> {
         centerTitle: true,
         title: Text(
           'Notifications'.toUpperCase(),
-          style: TextStyle(color: Theme.of(context).primaryColor),
+          style: TextStyle(color: Theme.of(context).accentColor),
         ),
         actions: [],
       ),

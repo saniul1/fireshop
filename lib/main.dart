@@ -9,13 +9,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'AppName',
       theme: ThemeData(
-        primarySwatch: Colors.blueGrey,
+        primaryColor: Colors.yellow,
+        accentColor: Colors.blueGrey,
         fontFamily: 'Roboto',
-        bottomAppBarColor: Colors.yellow,
         backgroundColor: Colors.white,
         scaffoldBackgroundColor: Colors.grey[50],
         appBarTheme: AppBarTheme(
-          color: Colors.yellow,
           textTheme: TextTheme(
             title: TextStyle(
               color: Colors.black54,

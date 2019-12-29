@@ -28,6 +28,7 @@ class CircleIconButton extends StatelessWidget {
             Icon(
               icon,
               size: size * 0.6, // 60% width for icon
+              color: Theme.of(context).accentColor,
             )
           ],
         ),
