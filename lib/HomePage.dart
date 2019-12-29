@@ -77,6 +77,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   }
 
   void _changeView(int index) {
+    if (index != 0) {
+      _seacrhFocusNode.unfocus();
+    }
     setState(() {
       _selectedView = index;
     });
